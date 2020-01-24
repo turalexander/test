@@ -1,0 +1,22 @@
+Order:
+  tableName: orders
+  columns:
+    number:
+      type: integer
+      primary: true
+      autoincrement: true
+    created_date:
+      type: datetime
+OrderItem:
+  tableName: order_item
+  columns:
+    order_id:
+      type: integer
+    product_name:
+      type: string(255)
+    product_price:
+      type: decimal
+    amount:
+      type: integer
+  relations:
+    Order:  { onDelete: CASCADE, local: order_id, foreign: number}
